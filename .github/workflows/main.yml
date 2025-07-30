@@ -1,0 +1,19 @@
+name: Main Taski Workflow
+
+on:
+  push:
+    branches: [ main ]  # Более современный синтаксис
+
+jobs:
+  checkout-and-print-tree:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4  # Актуальная версия
+
+      - name: Install tree
+        run: sudo apt-get update && sudo apt-get install -y tree  # Установка tree
+
+      - name: Print project tree
+        run: tree .
