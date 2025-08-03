@@ -6,7 +6,7 @@ volumes:
 
 # Всё отличие — заменяем build на image и указываем, какой образ использовать
 services:
-  db1:
+  db:
     image: postgres:13.10
     env_file: .env
     volumes:
@@ -24,7 +24,7 @@ services:
     volumes:
       - static_volume:/backend_static
     depends_on:
-      db1:
+      db:
         condition: service_healthy
 
   frontend:
